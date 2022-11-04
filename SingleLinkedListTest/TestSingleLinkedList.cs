@@ -9,31 +9,20 @@ namespace DatenstrukturenSingleLinkedListTest
         {
         }
 
-        /* [Test]
-          public void Stack_ifpop_equals()
-        {
-            var myStack = new Stack<int>();
-            myStack.Push(1);
-            myStack.Push(2);
-            myStack.Push(3);
-
-
-            Assert.AreEqual(3, myStack.Count());
-            Assert.AreEqual(myStack.Pop(), 3);
-            Assert.AreEqual(myStack.Pop(), 2);
-        }*/
-
         [Test]
-
-        public void Linkedlist_test()
+        public void LinkedList_test()
         {
-            var list = new SingleLinkedList();
-            list.insert(1);
-            list.insert(2);
-            list.insert(3);
+            var myList = new SingleLinkedList1<int>();
+            myList.insert_AtTheEnd(1);
+            myList.insert_AtTheEnd(2);
+            myList.insert_AtTheEnd(3);
 
-            Assert.AreEqual(3, list.size());
+
+
+            Assert.AreEqual(3, myList.size());
+
+            myList.delete_last();
+            Assert.AreEqual(2, myList.size());
         }
     }
-
- }
+}

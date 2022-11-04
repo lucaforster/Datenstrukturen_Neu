@@ -11,228 +11,200 @@ namespace DatenstrukturenSingleLinkedList
 {
     public class SingleLinkedList<T>
     {
-        Node<T> head;
-        public Node<T> sorted;
-        int count;
-        public SingleLinkedList()
-        {
-            head = null;
-        }
+        
+            Node<T> head;
+            public Node<T> sorted;
+            int count;
+            public SingleLinkedList()
+            {
+                head = null;
+            }
 
-        public void insert(int newElement)
-        {
-            Node newNode = new Node();
-            newNode.data = newElement;
-            newNode.next = null;
-            if (head == null)
-            {
-                head = newNode;
-            }
-            else
-            {
-                Node temp = new Node();
-                temp = head;
-                while (temp.next != null)
-                    temp = temp.next;
-                temp.next = newNode;
-            }
-            count++;
 
-        }
+            public void insert_inthemiddle(int newElement, int position)
+            {
+                Node<T> newNode = new Node<T>();
+                newNode.data = newElement;
+                newNode.next = null;
 
-        public Node<T> get_node(int position)
-        {
-            if (position < 1)
-            {
-                return null;
-            }
-            else if (position == 1 && head != null)
-            {
-                return head;
-            }
-            else
-            {
-                Node<T> temp = new Node<T>();
-                temp = head;
-                for (int i = 1; i < position - 1; i++)
+                if (position < 1)
                 {
-                    if (temp != null)
-                    {
-                        temp = temp.next;
-                    }
+                    Console.Write("\nposition should be >= 1.");
                 }
-                return temp;
-            }
-        }
-
-        public bool delete_after(int position)
-        {
-            if (position < 1)
-            {
-                return false;
-            }
-            else if (position == 1 && head != null)
-            {
-                Node<T> nodeToDelete = head;
-                head = head.next;
-                nodeToDelete = null;
-                count--;
-                return true;
-            }
-            else
-            {
-                Node<T> temp = new Node<T>();
-                temp = head;
-                for (int i = 1; i < position; i++)
+                else if (position == 1)
                 {
-                    if (temp != null)
-                    {
-                        temp = temp.next;
-                    }
-                }
-                if (temp != null && temp.next != null)
-                {
-                    Node<T> nodeToDelete = temp.next;
-                    temp.next = temp.next.next;
-                    nodeToDelete = null;
-                    count--;
-                    return true;
+                    newNode.next = head;
+                    head = newNode;
                 }
                 else
                 {
-                    return false;
-                }
-            }
-        }
 
-        public void delete_last()
-        {
-            if (this.head != null)
+                    Node<T> temp = new Node<T>();
+                    temp = head;
+                    for (int i = 1; i < position - 1; i++)
+                    {
+                        if (temp != null)
+                        {
+                            temp = temp.next;
+                        }
+                    }
+
+                    if (temp != null)
+                    {
+                        newNode.next = temp.next;
+                        temp.next = newNode;
+                    }
+                    else
+                    {
+                        Console.Write("\nThe previous node is null.");
+                    }
+                }
+                count++;
+            }
+
+            public void insert_AtTheEnd(int newElement)
             {
-                if (this.head.next == null)
+                Node<T> newNode = new Node<T>();
+                newNode.data = newElement;
+                newNode.next = null;
+                if (head == null)
                 {
-                    this.head = null;
+                    head = newNode;
                 }
                 else
                 {
                     Node<T> temp = new Node<T>();
-                    temp = this.head;
-                    while (temp.next.next != null)
+                    temp = head;
+                    while (temp.next != null)
                         temp = temp.next;
-                    Node<T> lastNode = temp.next;
-                    temp.next = null;
-                    lastNode = null;
-                }
-            }
-            count--;
-        }
-
-
-        public int size()
-        {
-            return count;
-        }
-
-        public void PrintList()
-        {
-            Node<T> temp = new Node<T>();
-            temp = this.head;
-            if (temp != null)
-            {
-                Console.Write("The list has ");
-                while (temp != null)
-                {
-                    Console.Write(temp.data + " ");
-                    temp = temp.next;
-                }
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("There is nothing in the list");
-            }
-        }
-
-        private void insert_first(int newElement)
-        {
-            Node<T> newNode = new Node<T>();
-            newNode.data = newElement;
-            newNode.next = head;
-            head = newNode;
-            count++;
-        }
-
-
-        public class Node<T>
-        {
-            internal Node<T> next;
-            internal int data;
-
-            public static implicit operator Node<T>(Node v)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public void Insert_beetwen(int newElement, int position, int count, Node<T>? head)
-        {
-            Node<T> newNode = new Node<T>();
-            newNode.data = newElement;
-            newNode.next = null;
-
-            if (position < 1)
-            {
-                Console.Write("\nposition >= 1.");
-            }
-            else if (position == 1)
-            {
-                newNode.next = head;
-                head = newNode;
-            }
-            else
-            {
-
-                Node<T> temp = new Node<T>();
-                temp = head;
-                for (int i = 1; i < position - 1; i++)
-                {
-                    if (temp != null)
-                    {
-                        temp = temp.next;
-                    }
-                }
-
-                if (temp != null)
-                {
-                    newNode.next = temp.next;
                     temp.next = newNode;
+                }
+                count++;
+            }
+
+            public void delete_at(int position)
+            {
+                if (position < 1)
+                {
+                    Console.Write("\nposition should be >= 1.");
+                }
+                else if (position == 1 && head != null)
+                {
+                    Node<T> nodeToDelete = head;
+                    head = head.next;
+                    nodeToDelete = null;
                 }
                 else
                 {
-                    Console.Write("\nnode is null.");
+                    Node<T> temp = new Node<T>();
+                    temp = head;
+                    for (int i = 1; i < position - 1; i++)
+                    {
+                        if (temp != null)
+                        {
+                            temp = temp.next;
+                        }
+                    }
+                    if (temp != null && temp.next != null)
+                    {
+                        Node<T> nodeToDelete = temp.next;
+                        temp.next = temp.next.next;
+                        nodeToDelete = null;
+                    }
+                    else
+                    {
+                        Console.Write("\nThe node is already null.");
+                    }
                 }
+                count--;
             }
-            count++;
-        }
-        public void Insert_last(int newElement, int count, object head)
-        {
-            Node<T> newNode = new Node<T>();
-            newNode.data = newElement;
-            newNode.next = null;
-            if (head == null)
+
+            public void delete_last()
             {
-                head = newNode;
+                if (this.head != null)
+                {
+                    if (this.head.next == null)
+                    {
+                        this.head = null;
+                    }
+                    else
+                    {
+                        Node<T> temp = new Node<T>();
+                        temp = this.head;
+                        while (temp.next.next != null)
+                            temp = temp.next;
+                        Node<T> lastNode = temp.next;
+                        temp.next = null;
+                        lastNode = null;
+                    }
+                }
+                count--;
             }
-            else
+
+
+            public int size()
+            {
+                return count;
+            }
+
+            public void PrintList()
             {
                 Node<T> temp = new Node<T>();
-                temp = (Node<T>)head;
-                while (temp.next != null)
-                    temp = temp.next;
-                temp.next = newNode;
+                temp = this.head;
+                if (temp != null)
+                {
+                    Console.Write("The list contains: ");
+                    while (temp != null)
+                    {
+                        Console.Write(temp.data + " ");
+                        temp = temp.next;
+                    }
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("The list is empty.");
+                }
             }
-            count++;
+            void insertionSort(Node<T> headref)
+            {
+                sorted = null;
+                Node<T> current = headref;
+
+                while (current != null)
+                {
+
+                    Node<T> next = current.next;
+
+                    sortedInsert(current);
+
+                    // Update current
+                    current = next;
+                }
+                head = sorted;
+            }
+
+            void sortedInsert(Node<T> newnode)
+            {
+                /* Special case for the head end */
+                if (sorted == null || sorted.data >= newnode.data)
+                {
+                    newnode.next = sorted;
+                    sorted = newnode;
+                }
+                else
+                {
+                    Node<T> current = sorted;
+
+                    /* Locate the node before the point of insertion */
+                    while (current.next != null &&
+                            current.next.data < newnode.data)
+                    {
+                        current = current.next;
+                    }
+                    newnode.next = current.next;
+                    current.next = newnode;
+                }
+            }
         }
     }
-
- }

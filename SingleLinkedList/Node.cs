@@ -6,24 +6,9 @@ using System.Threading.Tasks;
 
 namespace DatenstrukturenSingleLinkedList
 {
-    public class Node
-    {
-        public int data;
-        public Node next;
-
-        public Node()
+        public class Node<T>
         {
-        }
-
-        public Node(int data, Node next)
-        {
-            this.data = data;
-            this.next = next;
-        }
-
-        public static implicit operator Node(Node<object> v)
-        {
-            throw new NotImplementedException();
+            public int data;
+            public Node<T> next;
         }
     }
-}
