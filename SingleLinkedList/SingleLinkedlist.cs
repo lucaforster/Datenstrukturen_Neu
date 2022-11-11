@@ -186,7 +186,6 @@ namespace DatenstrukturenSingleLinkedList
 
             void sortedInsert(Node<T> newnode)
             {
-                /* Special case for the head end */
                 if (sorted == null || sorted.data >= newnode.data)
                 {
                     newnode.next = sorted;
@@ -194,9 +193,7 @@ namespace DatenstrukturenSingleLinkedList
                 }
                 else
                 {
-                    Node<T> current = sorted;
-
-                    /* Locate the node before the point of insertion */
+                Node<T> current = sorted;
                     while (current.next != null &&
                             current.next.data < newnode.data)
                     {
@@ -208,40 +205,40 @@ namespace DatenstrukturenSingleLinkedList
             }
              public void insertionSort()
              {
-                var temp = head.next;
+                var sort = head.next;
 
-                while (temp != null)
+                while (sort != null)
                 {
                     for (var current = head; current.next != null; current = current.next)
                     {
-                        if (current.data == temp.data && current.next.data == temp.next.data)
+                        if (current.data == sort.data && current.next.data == sort.next.data)
                             break;
-                        if (current.data <= temp.data)
+                        if (current.data <= sort.data)
                             continue;
                         var save = current.data;
-                        current.data = temp.data;
-                        temp.data = save;
+                        current.data = sort.data;
+                        sort.data = save;
                     }
-                    temp = temp.next;
+                    sort = sort.next;
                 }
             }
         public void insertionSortinverse()
         {
-            var temp = head;
+            var inverse = head;
 
-            while (temp != null)
+            while (inverse!= null)
             {
                 for (var current = head; current != null; current = current)
                 {
-                    if (current.data == temp.data && current.next.data == temp.next.data)
+                    if (current.data == inverse.data && current.next.data == inverse.next.data)
                         break;
-                    if (current.data >= temp.data)
+                    if (current.data >= inverse.data)
                         continue;
-                    var save = current.data;
-                    current.data = temp.data;
-                    temp.data = save;
+                var save = current.data;
+                current.data = inverse.data;
+                inverse.data = save;
                 }
-                temp = temp.next;
+                inverse = inverse.next;
             }
         }
     }

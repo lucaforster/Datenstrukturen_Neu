@@ -3,7 +3,7 @@ using DatenstrukturenSingleLinkedList;
 
 namespace DatenstrukturenSingleLinkedListTest
 {
-    public class Tests
+    public class TestSingleLinkedList
     {
         [SetUp]
         public void Setup()
@@ -80,3 +80,5 @@ namespace DatenstrukturenSingleLinkedListTest
 
             Assert.That(myList.ToString, Is.EqualTo("6\n6\n5\n4\n3\n2\n1\n"));
         }
+    }
+}
