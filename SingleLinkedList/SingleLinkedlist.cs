@@ -203,7 +203,7 @@ namespace DatenstrukturenSingleLinkedList
                     current.next = newnode;
                 }
             }
-             public void insertionSort()
+             public void insertionSortinverse()
              {
                 var sort = head.next;
 
@@ -222,6 +222,24 @@ namespace DatenstrukturenSingleLinkedList
                     sort = sort.next;
                 }
             }
-        
+        public void insertionSort()
+        {
+            var sort = head;
+
+            while (sort != null)
+            {
+                for (var current = head; current.next != null; current = current.next)
+                {
+                    if (current.data == sort.data && current.next.data == sort.next.data)
+                        break;
+                    if (current.data >= sort.data)
+                        continue;
+                    var save = current.data;
+                    current.data = sort.data;
+                    sort.data = save;
+                }
+                sort = sort.next;
+            }
+        }
     }
     }
