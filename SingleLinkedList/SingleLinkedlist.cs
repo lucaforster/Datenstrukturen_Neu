@@ -9,13 +9,13 @@ using System.Xml.Linq;
 
 namespace DatenstrukturenSingleLinkedList
 {
-    public class SingleLinkedList<T>
+    public class DatenstrukturenSingleLinkedList<T>
     {
         
             Node<T> head;
             public Node<T> sorted;
             int count;
-            public SingleLinkedList()
+            public DatenstrukturenSingleLinkedList()
             {
                 head = null;
             }
@@ -225,5 +225,24 @@ namespace DatenstrukturenSingleLinkedList
                     temp = temp.next;
                 }
             }
+        public void insertionSortinverse()
+        {
+            var temp = head;
+
+            while (temp != null)
+            {
+                for (var current = head; current != null; current = current)
+                {
+                    if (current.data == temp.data && current.next.data == temp.next.data)
+                        break;
+                    if (current.data >= temp.data)
+                        continue;
+                    var save = current.data;
+                    current.data = temp.data;
+                    temp.data = save;
+                }
+                temp = temp.next;
+            }
         }
+    }
     }
