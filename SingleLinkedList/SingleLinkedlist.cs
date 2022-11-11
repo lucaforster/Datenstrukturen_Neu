@@ -222,24 +222,6 @@ namespace DatenstrukturenSingleLinkedList
                     sort = sort.next;
                 }
             }
-        public void insertionSortinverse()
-        {
-            var inverse = head;
-
-            while (inverse!= null)
-            {
-                for (var current = head; current != null; current = current)
-                {
-                    if (current.data == inverse.data && current.next.data == inverse.next.data)
-                        break;
-                    if (current.data >= inverse.data)
-                        continue;
-                var save = current.data;
-                current.data = inverse.data;
-                inverse.data = save;
-                }
-                inverse = inverse.next;
-            }
-        }
+        
     }
     }
