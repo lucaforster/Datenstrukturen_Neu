@@ -62,23 +62,4 @@ namespace DatenstrukturenSingleLinkedListTest
 
             Assert.That(myList.ToString, Is.EqualTo("1\n2\n3\n4\n4\n5\n6\n"));
         }
-        [Test]
-        public void insertionSortinverse_SomeNummberDouble_CorrectOrderOfNumbersAndNoError()
-        {
-            var myList = new DatenstrukturenSingleLinkedList<int>();
-            myList.insert_AtTheEnd(1);
-            myList.insert_AtTheEnd(6);
-            myList.insert_AtTheEnd(2);
-            myList.insert_AtTheEnd(6);
-            myList.insert_AtTheEnd(3);
-            myList.insert_AtTheEnd(4);
-            myList.insert_AtTheEnd(5);
-
-            Assert.That(myList.ToString, Is.EqualTo("1\n6\n2\n6\n3\n4\n5\n"));
-
-            myList.insertionSortinverse();
-
-            Assert.That(myList.ToString, Is.EqualTo("6\n6\n5\n4\n3\n2\n1\n"));
-        }
-    }
-}
+        
