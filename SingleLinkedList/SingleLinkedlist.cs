@@ -9,21 +9,31 @@ using System.Xml.Linq;
 
 namespace DatenstrukturenSingleLinkedList
 {
-    public class DatenstrukturenSingleLinkedList<T>
+    public class SingleLinkedList<T>
     {
         
-            Node<T> head;
-            public Node<T> sorted;
+            Node head;
+            public Node sorted;
             int count;
-            public DatenstrukturenSingleLinkedList()
+            public SingleLinkedList()
             {
                 head = null;
             }
 
+        public void DeleteFirst()
+        {
+            count--;
+            head = head.next;
+        }
 
-            public void insert_inthemiddle(int newElement, int position)
+        public Node GetFirst()
+        {
+            return head;
+        }
+
+        public void insert_inthemiddle(int newElement, int position)
             {
-                Node<T> newNode = new Node<T>();
+                Node newNode = new Node();
                 newNode.data = newElement;
                 newNode.next = null;
 
@@ -39,7 +49,7 @@ namespace DatenstrukturenSingleLinkedList
                 else
                 {
 
-                    Node<T> temp = new Node<T>();
+                    Node temp = new Node();
                     temp = head;
                     for (int i = 1; i < position - 1; i++)
                     {
@@ -64,7 +74,7 @@ namespace DatenstrukturenSingleLinkedList
 
             public void insert_AtTheEnd(int newElement)
             {
-                Node<T> newNode = new Node<T>();
+                Node newNode = new Node();
                 newNode.data = newElement;
                 newNode.next = null;
                 if (head == null)
@@ -73,7 +83,7 @@ namespace DatenstrukturenSingleLinkedList
                 }
                 else
                 {
-                    Node<T> temp = new Node<T>();
+                    Node temp = new Node();
                     temp = head;
                     while (temp.next != null)
                         temp = temp.next;
@@ -90,13 +100,13 @@ namespace DatenstrukturenSingleLinkedList
                 }
                 else if (position == 1 && head != null)
                 {
-                    Node<T> nodeToDelete = head;
+                    Node nodeToDelete = head;
                     head = head.next;
                     nodeToDelete = null;
                 }
                 else
                 {
-                    Node<T> temp = new Node<T>();
+                    Node temp = new Node();
                     temp = head;
                     for (int i = 1; i < position - 1; i++)
                     {
@@ -107,7 +117,7 @@ namespace DatenstrukturenSingleLinkedList
                     }
                     if (temp != null && temp.next != null)
                     {
-                        Node<T> nodeToDelete = temp.next;
+                        Node nodeToDelete = temp.next;
                         temp.next = temp.next.next;
                         nodeToDelete = null;
                     }
@@ -129,11 +139,11 @@ namespace DatenstrukturenSingleLinkedList
                     }
                     else
                     {
-                        Node<T> temp = new Node<T>();
+                        Node temp = new Node();
                         temp = this.head;
                         while (temp.next.next != null)
                             temp = temp.next;
-                        Node<T> lastNode = temp.next;
+                        Node lastNode = temp.next;
                         temp.next = null;
                         lastNode = null;
                     }
@@ -149,7 +159,7 @@ namespace DatenstrukturenSingleLinkedList
 
             public void PrintList()
             {
-                Node<T> temp = new Node<T>();
+                Node temp = new Node();
                 temp = this.head;
                 if (temp != null)
                 {
@@ -166,15 +176,15 @@ namespace DatenstrukturenSingleLinkedList
                     Console.WriteLine("The list is empty.");
                 }
             }
-            void insertionSort(Node<T> headref)
+            void insertionSort(Node headref)
             {
                 sorted = null;
-                Node<T> current = headref;
+                Node current = headref;
 
                 while (current != null)
                 {
 
-                    Node<T> next = current.next;
+                    Node next = current.next;
 
                     sortedInsert(current);
 
@@ -184,7 +194,7 @@ namespace DatenstrukturenSingleLinkedList
                 head = sorted;
             }
 
-            void sortedInsert(Node<T> newnode)
+            void sortedInsert(Node newnode)
             {
                 if (sorted == null || sorted.data >= newnode.data)
                 {
@@ -193,7 +203,7 @@ namespace DatenstrukturenSingleLinkedList
                 }
                 else
                 {
-                Node<T> current = sorted;
+                Node current = sorted;
                     while (current.next != null &&
                             current.next.data < newnode.data)
                     {
@@ -240,6 +250,32 @@ namespace DatenstrukturenSingleLinkedList
                 }
                 sort = sort.next;
             }
+        }
+
+        public Node? GetLast()
+        {
+            for (Node cur = head; cur.next != null; cur = cur.next)
+            {
+                if (cur.next == null)
+                {
+                    return cur;
+                }
+            }
+            return null;
+        }
+        public void SetSortStrategy(SortStrategy sortStrategy)
+        {
+            sortstrategy = sortStrategy;
+        }
+
+        public void Sort()
+        {
+            sortstrategy.Sort(this);
+        }
+
+        public void SortDesc()
+        {
+            sortstrategy.SortDesc(this);
         }
     }
     }

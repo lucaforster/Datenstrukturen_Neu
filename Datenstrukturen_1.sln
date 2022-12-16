@@ -10,6 +10,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingleLinkedListTest", "Sin
 		{458EDCA3-5EB5-417E-9215-564F7BC954AB} = {458EDCA3-5EB5-417E-9215-564F7BC954AB}
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueueTest", "QueueTest\QueueTest.csproj", "{0B165596-5A99-45D7-9773-9FBDBD81C999}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyStackTests", "MyStackTests\MyStackTests.csproj", "{F37A9C62-E62D-427A-B73E-D68C714FD112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +28,14 @@ Global
 		{F428DEA0-8951-47E9-A89E-9387A037E760}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F428DEA0-8951-47E9-A89E-9387A037E760}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F428DEA0-8951-47E9-A89E-9387A037E760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B165596-5A99-45D7-9773-9FBDBD81C999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B165596-5A99-45D7-9773-9FBDBD81C999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B165596-5A99-45D7-9773-9FBDBD81C999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B165596-5A99-45D7-9773-9FBDBD81C999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37A9C62-E62D-427A-B73E-D68C714FD112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37A9C62-E62D-427A-B73E-D68C714FD112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37A9C62-E62D-427A-B73E-D68C714FD112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37A9C62-E62D-427A-B73E-D68C714FD112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
