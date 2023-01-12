@@ -28,5 +28,10 @@ namespace DatenstrukturenSingleLinkedList
             }
 
         }
+
+        public override void SortDesc(IMyList list)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

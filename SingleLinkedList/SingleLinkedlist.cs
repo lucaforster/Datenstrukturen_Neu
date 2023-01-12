@@ -9,21 +9,37 @@ using System.Xml.Linq;
 
 namespace DatenstrukturenSingleLinkedList
 {
-    public class SingleLinkedList<T>
+    public class SingleLinkedList : IMyList
     {
         
-            Node head;
-            public Node sorted;
-            int count;
-            public SingleLinkedList()
-            {
-                head = null;
-            }
+         Node head;
+         public Node sorted;
+         int count;
+         SortStrategy strategy;
+         public SingleLinkedList()
+         {
+            head = null;
+         }
 
         public void DeleteFirst()
         {
             count--;
             head = head.next;
+        }
+        public override string ToString()
+        {
+            string retval = "";
+            if (head == null)
+                return "No elements in List";
+
+            var node = head;
+            while (node != null)
+            {
+                retval += "| " + node.data + " ";
+                node = node.next;
+            }
+            retval += "|";
+            return retval;
         }
 
         public Node GetFirst()
@@ -265,17 +281,45 @@ namespace DatenstrukturenSingleLinkedList
         }
         public void SetSortStrategy(SortStrategy sortStrategy)
         {
-            sortstrategy = sortStrategy;
+
+
+            strategy = sortStrategy;
         }
 
         public void Sort()
         {
-            sortstrategy.Sort(this);
+            strategy.Sort(this);
         }
 
         public void SortDesc()
         {
-            sortstrategy.SortDesc(this);
+            strategy.SortDesc(this);
+
+        }
+        public Node GetNode(int data)
+        {
+            Node cur = head;
+            while(cur != null)
+            {
+                if(cur.data == data)
+                {
+                    return cur;
+                }
+                if(cur.next == null)
+                {
+                    return null;
+                }
+                cur = cur.next;
+            }
+            return null;
+        }
+
+        public void SwitchNodes(Node firstNode, Node secondNode)
+        {
+            if(GetNode(firstNode.data) != null && GetNode(secondNode.data) != null)
+            {
+                (firstNode.data, secondNode.data) = (secondNode.data, firstNode.data);
+            }
         }
     }
     }

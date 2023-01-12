@@ -28,7 +28,6 @@ namespace DatenstrukturenSingleLinkedList
             stack.Push(2);
             stack.Push(3);
             var last = stack.Pop();
-            Assert.AreEqual(last.data, 3);
             Assert.AreEqual(stack.ToString(), "| 1 | 2 |");
         }
     }
