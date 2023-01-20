@@ -122,4 +122,17 @@ namespace DatenstrukturenSingleLinkedList
             Console.WriteLine("BubbleSorted list ");
         }
     }
+    public class Quicksort : SortStrategy
+    {
+        public override void Sort(IMyList list)
+        {
+            list.SetSortStrategy(new Quicksort());
+
+        }
+
+        public override void SortDesc(IMyList list)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

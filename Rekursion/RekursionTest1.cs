@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace Rekursion
 {
-    public class Tests
+    public class RekursionTests
     {
         [SetUp]
         public void Setup()
