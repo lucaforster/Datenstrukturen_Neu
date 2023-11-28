@@ -35,7 +35,7 @@ namespace DatenstrukturenSingleLinkedListTest
             myList.insert_AtTheEnd(4);
             myList.insert_AtTheEnd(3);
             myList.insert_AtTheEnd(5);
-            myList.SetSortStrategy(new InsertionSort());
+            myList.SetSortStrategy(new Sortstartegyfactory());
 
             Assert.That(myList.ToString(), Is.EqualTo("| 1 | 6 | 2 | 4 | 3 | 5 |"));
 
