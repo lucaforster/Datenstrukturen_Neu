@@ -20,7 +20,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bäum", "Bäum\Bäum.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaumTest", "BaumTest\BaumTest.csproj", "{ED368623-D253-40D9-B63A-41AE038CE0CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quicksort", "Quicksort\Quicksort.csproj", "{DE97C309-8DF2-4192-97AA-BA5743A31786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicksort", "Quicksort\Quicksort.csproj", "{DE97C309-8DF2-4192-97AA-BA5743A31786}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stack", "Stack", "{B4E5B925-4D91-4A90-AB02-33030F3AB197}"
+	ProjectSection(SolutionItems) = preProject
+		Palindrom.cs = Palindrom.cs
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromeTest", "PalindromeTest\PalindromeTest.csproj", "{EB324FC2-FB37-4107-96E3-13C242E11CFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,9 +67,16 @@ Global
 		{DE97C309-8DF2-4192-97AA-BA5743A31786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE97C309-8DF2-4192-97AA-BA5743A31786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE97C309-8DF2-4192-97AA-BA5743A31786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB324FC2-FB37-4107-96E3-13C242E11CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB324FC2-FB37-4107-96E3-13C242E11CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB324FC2-FB37-4107-96E3-13C242E11CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB324FC2-FB37-4107-96E3-13C242E11CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB324FC2-FB37-4107-96E3-13C242E11CFF} = {B4E5B925-4D91-4A90-AB02-33030F3AB197}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86267659-0890-4E2B-A857-24CBE77999B5}
